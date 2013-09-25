@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INeedHelp.Services", "INeedHelp.Services\INeedHelp.Services.csproj", "{B4B271A1-5B94-4BD5-9F98-58E0FAC539F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INeedHelp.Models", "INeedHelp.Models\INeedHelp.Models.csproj", "{8C4727B7-ECF8-45DC-BECB-391FBF966E83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INeedHelp.DataLayer", "INeedHelp.DataLayer\INeedHelp.DataLayer.csproj", "{D0440D25-A513-4CB0-B597-735B865434DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{B4B271A1-5B94-4BD5-9F98-58E0FAC539F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4B271A1-5B94-4BD5-9F98-58E0FAC539F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4B271A1-5B94-4BD5-9F98-58E0FAC539F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4727B7-ECF8-45DC-BECB-391FBF966E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4727B7-ECF8-45DC-BECB-391FBF966E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4727B7-ECF8-45DC-BECB-391FBF966E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4727B7-ECF8-45DC-BECB-391FBF966E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0440D25-A513-4CB0-B597-735B865434DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0440D25-A513-4CB0-B597-735B865434DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0440D25-A513-4CB0-B597-735B865434DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0440D25-A513-4CB0-B597-735B865434DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

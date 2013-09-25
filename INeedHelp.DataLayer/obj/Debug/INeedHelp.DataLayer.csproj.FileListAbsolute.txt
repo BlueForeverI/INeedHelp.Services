@@ -1,0 +1,10 @@
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.dll.config
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.dll
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.pdb
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\EntityFramework.dll
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.Models.dll
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.Models.pdb
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\EntityFramework.xml
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.csprojResolveAssemblyReference.cache
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.dll
+E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.pdb
