@@ -14,6 +14,12 @@ namespace INeedHelp.Services
                 new CamelCasePropertyNamesContractResolver();
 
             config.Routes.MapHttpRoute(
+                   name: "FriendsApi",
+                   routeTemplate: "api/friends/{action}/{id}",
+                   defaults: new { controller = "friends", id = RouteParameter.Optional }
+               );
+
+            config.Routes.MapHttpRoute(
                    name: "UserApi",
                    routeTemplate: "api/users/{action}/{id}",
                    defaults: new { controller = "users", id = RouteParameter.Optional }

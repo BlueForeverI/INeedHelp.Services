@@ -51,5 +51,69 @@ namespace INeedHelp.DataLayer
             user.SessionKey = null;
             dbContext.SaveChanges();
         }
+
+        public bool SendContactRequest(User sender, User receiver)
+        {
+            dbContext.Users.Attach(sender);
+            dbContext.Users.Attach(receiver);
+
+            if (receiver.FriendRequests.Any(c => c.Sender.Id == sender.Id))
+            {
+                return false;
+            }
+
+            receiver.FriendRequests.Add(new FriendRequest() { Sender = sender });
+            dbContext.SaveChanges();
+            return true;
+        }
+
+        public User Get(int id)
+        {
+            return dbContext.Users.Find(id);
+        }
+
+        public bool AcceptContactRequest(int requestId, User user)
+        {
+            var request = dbContext.FriendRequests.FirstOrDefault(c => c.Id == requestId);
+            if (request == null)
+            {
+                return false;
+            }
+
+            dbContext.Users.Attach(user);
+            if (!user.FriendRequests.Any(c => c.Id == requestId))
+            {
+                return false;
+            }
+
+            user.Friends.Add(request.Sender);
+            request.Sender.Friends.Add(user);
+            dbContext.SaveChanges();
+
+            dbContext.FriendRequests.Remove(request);
+            dbContext.SaveChanges();
+
+            return true;
+        }
+
+        public bool DenyContactRequest(int requestId, User user)
+        {
+            var request = dbContext.FriendRequests.FirstOrDefault(c => c.Id == requestId);
+            if (request == null)
+            {
+                return false;
+            }
+
+            dbContext.Users.Attach(user);
+            if (!user.FriendRequests.Any(c => c.Id == requestId))
+            {
+                return false;
+            }
+
+            dbContext.FriendRequests.Remove(request);
+            dbContext.SaveChanges();
+
+            return true;
+        }
     }
 }
