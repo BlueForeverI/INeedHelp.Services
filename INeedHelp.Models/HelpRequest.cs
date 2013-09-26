@@ -12,6 +12,7 @@ namespace INeedHelp.Models
         public string PictureUrl { get; set; }
         public bool Solved { get; set; }
 
+        public virtual User User { get; set; }
         public virtual Coordinates Coordinates { get; set; }
         public virtual ICollection<User> Helpers { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

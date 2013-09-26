@@ -32,6 +32,12 @@ namespace INeedHelp.DataLayer
                     map.MapRightKey("SecondUserId");
                 });
 
+            modelBuilder.Entity<HelpRequest>()
+                .HasMany(h => h.Helpers).WithMany()
+                .Map(map =>
+                    map.ToTable("HelpersHelpRequests")
+                );
+
             base.OnModelCreating(modelBuilder);
         }
     }
