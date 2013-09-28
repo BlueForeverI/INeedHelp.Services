@@ -74,7 +74,7 @@ namespace INeedHelp.DataLayer
         {
             var requestToEdit = dbContext.HelpRequests.Find(request.Id);
             requestToEdit.Title = request.Title;
-            request.Text = request.Text;
+            requestToEdit.Text = request.Text;
             requestToEdit.Solved = request.Solved;
             requestToEdit.PictureUrl = request.PictureUrl;
             dbContext.SaveChanges();
