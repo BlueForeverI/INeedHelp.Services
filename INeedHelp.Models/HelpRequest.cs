@@ -8,6 +8,7 @@ namespace INeedHelp.Models
     public class HelpRequest
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         public string Text { get; set; }
         public string PictureUrl { get; set; }
         public bool Solved { get; set; }

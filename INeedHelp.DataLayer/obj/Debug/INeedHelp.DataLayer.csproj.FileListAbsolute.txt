@@ -8,3 +8,13 @@ E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\EntityFramework
 E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.csprojResolveAssemblyReference.cache
 E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.dll
 E:\Dev\Projects\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.pdb
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.dll.config
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.dll
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.DataLayer.pdb
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.Models.dll
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\INeedHelp.Models.pdb
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.dll
+C:\Users\George\Documents\Win8 XAML\Project\INeedHelp.Services\INeedHelp.DataLayer\obj\Debug\INeedHelp.DataLayer.pdb

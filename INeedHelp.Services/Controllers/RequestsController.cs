@@ -103,8 +103,25 @@ namespace INeedHelp.Services.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
             }
 
-            var requests = requestsPersister.GetByUser(sender).Select(r => HelpRequestModel.FromHelpRequest(r));
+            var requests = requestsPersister.GetByUser(sender)
+                .Select(r => HelpRequestModel.FromHelpRequest(r, false));
             return Request.CreateResponse(HttpStatusCode.OK, requests);
+        }
+
+        [HttpGet]
+        [ActionName("byid")]
+        public HttpResponseMessage GetRequestById(int id,
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var sender = usersPersister.GetBySessionKey(sessionKey);
+            if (sender == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            HelpRequestModel request = 
+                HelpRequestModel.FromHelpRequest(requestsPersister.GetById(id));
+            return Request.CreateResponse(HttpStatusCode.OK, request);
         }
 
         [HttpGet]

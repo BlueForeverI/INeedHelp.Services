@@ -63,5 +63,10 @@ namespace INeedHelp.DataLayer
             request.Solved = true;
             dbContext.SaveChanges();
         }
+
+        public HelpRequest GetById(int id)
+        {
+            return dbContext.HelpRequests.Find(id);
+        }
     }
 }
