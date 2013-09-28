@@ -43,6 +43,7 @@ namespace INeedHelp.DataLayer
         {
             var request = dbContext.HelpRequests.Find(requestId);
             var user = dbContext.Users.Find(userId);
+            user.Reputation++;
             request.Helpers.Add(user);
             dbContext.SaveChanges();
         }
@@ -67,6 +68,16 @@ namespace INeedHelp.DataLayer
         public HelpRequest GetById(int id)
         {
             return dbContext.HelpRequests.Find(id);
+        }
+
+        public void EditRequest(HelpRequest request)
+        {
+            var requestToEdit = dbContext.HelpRequests.Find(request.Id);
+            requestToEdit.Title = request.Title;
+            request.Text = request.Text;
+            requestToEdit.Solved = request.Solved;
+            requestToEdit.PictureUrl = request.PictureUrl;
+            dbContext.SaveChanges();
         }
     }
 }

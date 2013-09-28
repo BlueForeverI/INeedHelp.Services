@@ -145,5 +145,20 @@ namespace INeedHelp.Services.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
+        [HttpPost]
+        [ActionName("edit")]
+        public HttpResponseMessage EditRequest([FromBody]HelpRequest request,
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var sender = usersPersister.GetBySessionKey(sessionKey);
+            if (sender == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            requestsPersister.EditRequest(request);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }
