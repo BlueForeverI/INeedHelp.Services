@@ -82,7 +82,7 @@ namespace INeedHelp.DataLayer
 
         public IEnumerable<HelpRequest> GetRequestsNearPoint(Coordinates point, double maxDistance)
         {
-            return dbContext.HelpRequests
+            return dbContext.HelpRequests.ToList()
                 .Where(r => r.Coordinates != null &&
                             DistanceCalculator.CalculateDistance(point, r.Coordinates) <= maxDistance).ToList();
         }
