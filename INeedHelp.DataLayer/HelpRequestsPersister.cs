@@ -79,5 +79,12 @@ namespace INeedHelp.DataLayer
             requestToEdit.PictureUrl = request.PictureUrl;
             dbContext.SaveChanges();
         }
+
+        public IEnumerable<HelpRequest> GetRequestsNearPoint(Coordinates point, double maxDistance)
+        {
+            return dbContext.HelpRequests
+                .Where(r => r.Coordinates != null &&
+                            DistanceCalculator.CalculateDistance(point, r.Coordinates) <= maxDistance).ToList();
+        }
     }
 }

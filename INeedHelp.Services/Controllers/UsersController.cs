@@ -102,6 +102,46 @@ namespace INeedHelp.Services.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpPost]
+        [ActionName("edit")]
+        public HttpResponseMessage EditUser([FromBody]UsedEditModel value,
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var user = usersPersister.GetBySessionKey(sessionKey);
+            if (user == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            var userToEdit = new User()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                FirstName = value.FirstName,
+                LastName = value.LastName,
+                PasswordHash = value.OldPasswordHash,
+                ProfilePictureUrl = value.ProfilePictureUrl
+            };
+
+            if (usersPersister.EditUser(userToEdit, value.NewPasswordHash))
+            {
+                var updatedUser = usersPersister.Get(userToEdit.Id);
+                var userModel = new UserModel()
+                {
+                    Id = updatedUser.Id,
+                    Username = updatedUser.Username,
+                    SessionKey = sessionKey,
+                    FirstName = updatedUser.FirstName,
+                    LastName = updatedUser.LastName,
+                    ProfilePictureUrl = updatedUser.ProfilePictureUrl
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, userModel);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest, "Could not edit user");
+        }
+
         private string GenerateSessionKey(int userId)
         {
             StringBuilder skeyBuilder = new StringBuilder(SessionKeyLength);

@@ -160,5 +160,23 @@ namespace INeedHelp.Services.Controllers
             requestsPersister.EditRequest(request);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        [HttpPost]
+        [ActionName("near")]
+        public HttpResponseMessage GetRequestNearPoint(int id, [FromBody]Coordinates point,
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var sender = usersPersister.GetBySessionKey(sessionKey);
+            if (sender == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            double maxDistance = id;
+            var requests = requestsPersister.GetRequestsNearPoint(point, maxDistance)
+                .Select(r => HelpRequestModel.FromHelpRequest(r));
+
+            return Request.CreateResponse(HttpStatusCode.OK, requests);
+        }
     }
 }

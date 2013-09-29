@@ -115,5 +115,24 @@ namespace INeedHelp.DataLayer
 
             return true;
         }
+
+        public bool EditUser(User userToEdit, string newPasswordHash)
+        {
+            var user = dbContext.Users.Find(userToEdit.Id);
+            if (userToEdit.PasswordHash != null)
+            {
+                if (user.Username != userToEdit.Username || user.PasswordHash != userToEdit.PasswordHash)
+                {
+                    return false;
+                }
+            }
+
+            user.FirstName = userToEdit.FirstName ?? user.FirstName;
+            user.LastName = userToEdit.LastName ?? user.LastName;
+            user.PasswordHash = (userToEdit.PasswordHash != null) ? newPasswordHash : user.PasswordHash;
+            user.ProfilePictureUrl = userToEdit.ProfilePictureUrl ?? user.ProfilePictureUrl;
+            dbContext.SaveChanges();
+            return true;
+        }
     }
 }
