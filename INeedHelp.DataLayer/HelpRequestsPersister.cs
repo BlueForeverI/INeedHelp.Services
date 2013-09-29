@@ -86,5 +86,12 @@ namespace INeedHelp.DataLayer
                 .Where(r => r.Coordinates != null &&
                             DistanceCalculator.CalculateDistance(point, r.Coordinates) <= maxDistance).ToList();
         }
+
+        public IEnumerable<HelpRequest> Search(string text)
+        {
+            text = text.ToLower();
+            return dbContext.HelpRequests.ToList().
+                Where(r => r.Title.ToLower().Contains(text) || r.Text.Contains(text));
+        }
     }
 }

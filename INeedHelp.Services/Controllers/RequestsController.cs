@@ -35,7 +35,7 @@ namespace INeedHelp.Services.Controllers
             }
 
             IEnumerable<HelpRequestModel> helpRequests = requestsPersister.GetAll()
-                .Select(r => HelpRequestModel.FromHelpRequest(r)).ToList();
+                .Select(r => HelpRequestModel.FromHelpRequest(r, false)).ToList();
 
             return Request.CreateResponse(HttpStatusCode.OK, helpRequests);
         }
@@ -174,7 +174,24 @@ namespace INeedHelp.Services.Controllers
 
             double maxDistance = id;
             var requests = requestsPersister.GetRequestsNearPoint(point, maxDistance)
-                .Select(r => HelpRequestModel.FromHelpRequest(r));
+                .Select(r => HelpRequestModel.FromHelpRequest(r, false));
+
+            return Request.CreateResponse(HttpStatusCode.OK, requests);
+        }
+
+        [HttpPost]
+        [ActionName("search")]
+        public HttpResponseMessage SearchRequests([FromBody]QueryModel query,
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var sender = usersPersister.GetBySessionKey(sessionKey);
+            if (sender == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            var requests = requestsPersister.Search(query.Text)
+                .Select(r => HelpRequestModel.FromHelpRequest(r, false));
 
             return Request.CreateResponse(HttpStatusCode.OK, requests);
         }

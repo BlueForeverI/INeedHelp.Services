@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\HelpRequestModel.cs" />
+    <Compile Include="Models\QueryModel.cs" />
     <Compile Include="Models\UsedEditModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
