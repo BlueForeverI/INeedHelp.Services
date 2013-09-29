@@ -91,7 +91,7 @@ namespace INeedHelp.DataLayer
         {
             text = text.ToLower();
             return dbContext.HelpRequests.ToList().
-                Where(r => r.Title.ToLower().Contains(text) || r.Text.Contains(text));
+                Where(r => r.Title.ToLower().Contains(text) || r.Text.ToLower().Contains(text));
         }
     }
 }

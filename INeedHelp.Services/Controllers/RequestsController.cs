@@ -191,7 +191,7 @@ namespace INeedHelp.Services.Controllers
             }
 
             var requests = requestsPersister.Search(query.Text)
-                .Select(r => HelpRequestModel.FromHelpRequest(r, false));
+                .Select(r => HelpRequestModel.FromHelpRequest(r, false)).ToList();
 
             return Request.CreateResponse(HttpStatusCode.OK, requests);
         }
