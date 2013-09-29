@@ -142,6 +142,30 @@ namespace INeedHelp.Services.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest, "Could not edit user");
         }
 
+        [HttpGet]
+        [ActionName("session")]
+        public HttpResponseMessage GetUserBySessionKey(
+            [ValueProvider(typeof(HeaderValueProviderFactory<String>))] String sessionKey)
+        {
+            var user = usersPersister.GetBySessionKey(sessionKey);
+            if (user == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid session key");
+            }
+
+            var userModel = new UserModel()
+                                {
+                                    Id = user.Id,
+                                    FirstName = user.FirstName,
+                                    LastName = user.LastName,
+                                    ProfilePictureUrl = user.ProfilePictureUrl,
+                                    SessionKey = user.SessionKey,
+                                    Username = user.Username
+                                };
+
+            return Request.CreateResponse(HttpStatusCode.OK, userModel);
+        }
+
         private string GenerateSessionKey(int userId)
         {
             StringBuilder skeyBuilder = new StringBuilder(SessionKeyLength);
