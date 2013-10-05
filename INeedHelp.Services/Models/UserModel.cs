@@ -19,6 +19,8 @@ namespace INeedHelp.Services.Models
         public string ProfilePictureUrl { get; set; }
 
         public string SessionKey { get; set; }
+        
+        public string Reputation { get; set; }
 
         public static UserModel FromUser(User user)
         {
