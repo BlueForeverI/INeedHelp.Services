@@ -53,7 +53,8 @@ namespace INeedHelp.Services.Controllers
                 SessionKey = sessionKey,
                 FirstName = value.Username,
                 LastName = value.LastName,
-                ProfilePictureUrl = value.ProfilePictureUrl
+                ProfilePictureUrl = value.ProfilePictureUrl,
+                Reputation = value.Reputation
             };
 
             return Request.CreateResponse(HttpStatusCode.Created, userModel);   
