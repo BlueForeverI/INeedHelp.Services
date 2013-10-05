@@ -77,7 +77,8 @@ namespace INeedHelp.Services.Controllers
                     Username = user.Username,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    ProfilePictureUrl = user.ProfilePictureUrl
+                    ProfilePictureUrl = user.ProfilePictureUrl,
+                    Reputation = value.Reputation
                 };
 
                 return Request.CreateResponse(HttpStatusCode.OK, userModel);
