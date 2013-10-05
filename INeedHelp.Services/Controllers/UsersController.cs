@@ -54,7 +54,7 @@ namespace INeedHelp.Services.Controllers
                 FirstName = value.Username,
                 LastName = value.LastName,
                 ProfilePictureUrl = value.ProfilePictureUrl,
-                Reputation = value.Reputation
+                Reputation = 0
             };
 
             return Request.CreateResponse(HttpStatusCode.Created, userModel);   
@@ -78,7 +78,7 @@ namespace INeedHelp.Services.Controllers
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     ProfilePictureUrl = user.ProfilePictureUrl,
-                    Reputation = value.Reputation
+                    Reputation = user.Reputation
                 };
 
                 return Request.CreateResponse(HttpStatusCode.OK, userModel);
